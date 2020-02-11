@@ -13,3 +13,13 @@ gradle-app.setting
 # # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
 # gradle/wrapper/gradle-wrapper.properties
 .idea/workspace.xml
+.idea/.name
+.idea/codeStyles/codeStyleConfig.xml
+.idea/codeStyles/codeStyleConfig.xml
+.idea/encodings.xml
+.idea/gradle.xml
+.idea/java_pft.iml
+.idea/modules.xml
+.idea/uiDesigner.xml
+.idea/vcs.xml
+.idea/vcs.xml
