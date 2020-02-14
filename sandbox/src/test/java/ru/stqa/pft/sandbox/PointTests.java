@@ -10,14 +10,14 @@ public void testDistance1 () {
     Point p1 = new Point(1, 10);
     Point p2 = new Point(1, 9);
 
-    Assert.assertEquals(p2.distance(p1, p2), 1);
+    Assert.assertEquals(p1.distance(p2), 1);
   }
   @Test
   public void testDistance2 () {
     Point p1 = new Point(2, 11);
     Point p2 = new Point(2, 15);
 
-    Assert.assertEquals(p2.distance(p1, p2), 4);
+    Assert.assertEquals(p1.distance(p2), 4);
   }
 
   @Test
@@ -25,6 +25,6 @@ public void testDistance1 () {
     Point p1 = new Point(2, 11);
     Point p2 = new Point(2, 15);
 
-    Assert.assertEquals(p2.distance(p1, p2), 5);
+    Assert.assertEquals(p1.distance(p2), 5);
   }
 }
