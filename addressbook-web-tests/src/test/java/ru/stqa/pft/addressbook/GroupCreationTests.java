@@ -43,7 +43,7 @@ public class GroupCreationTests {
   private void logout() {
     wd.findElement(By.linkText("Logout")).click();
     wd.findElement(By.name("user")).clear();
-    wd.findElement(By.name("user")).sendKeys("admin");
+    
   }
 
   private void returnToGroupPage() {
