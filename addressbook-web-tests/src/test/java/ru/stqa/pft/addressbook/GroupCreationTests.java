@@ -36,7 +36,14 @@ public class GroupCreationTests {
     fillGroupForm(new GroupData("Test1", "Test2", "Test3"));
     submitGroupCreation();
     returnToGroupPage();
+    logout();
 
+  }
+
+  private void logout() {
+    wd.findElement(By.linkText("Logout")).click();
+    wd.findElement(By.name("user")).clear();
+    wd.findElement(By.name("user")).sendKeys("admin");
   }
 
   private void returnToGroupPage() {
@@ -57,6 +64,7 @@ public class GroupCreationTests {
     wd.findElement(By.name("group_footer")).click();
     wd.findElement(By.name("group_footer")).clear();
     wd.findElement(By.name("group_footer")).sendKeys(groupData.getFooter());
+
   }
 
   private void initGroupCreation() {
