@@ -35,7 +35,7 @@ public class ContactCreationTests {
 
     initContactCreation();
     fillContactForm(new ContactData("FirstTest", "LastTest", "AdressTest", "123456789", "test@test.com"));
-    submitGroupCreation();
+    submitContactCreation();
     returnToGroupPage();
     logout();
   }
@@ -48,7 +48,7 @@ public class ContactCreationTests {
     wd.findElement(By.linkText("home page")).click();
   }
 
-  private void submitGroupCreation() {
+  private void submitContactCreation() {
     wd.findElement(By.xpath("(//input[@name='submit'])[2]")).click();
   }
 
