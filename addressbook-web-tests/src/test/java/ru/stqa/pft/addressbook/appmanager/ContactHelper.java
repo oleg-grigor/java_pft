@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import ru.stqa.pft.addressbook.model.ContactData;
 
 public class ContactHelper extends HelperBase {
-  private WebDriver wd;
 
   public ContactHelper(WebDriver wd) {
     super(wd);
@@ -20,8 +19,6 @@ public class ContactHelper extends HelperBase {
     click(By.xpath("(//input[@name='submit'])[2]"));
   }
 
-
-
   public void fillContactForm(ContactData contactData) {
     type(By.name("firstname"), contactData.getFirstname());
     type(By.name("lastname"), contactData.getLastname());
@@ -29,8 +26,6 @@ public class ContactHelper extends HelperBase {
     type(By.name("home"), contactData.getHome());
     type(By.name("email"), contactData.getEmail());
   }
-
-
 
   public void initContactCreation() {
     click(By.linkText("add new"));
