@@ -16,7 +16,5 @@ public class ContactCreationTests extends TestBase {
     app.logout();
   }
 
-
-
   }
 
