@@ -62,7 +62,7 @@ public class ContactHelper extends HelperBase {
     wd.findElement(By.cssSelector("div.msgbox"));
   }
 
-  public void initContactModification(int index) {
+  public void initContactModificationById(int index) {
     wd.findElements(By.xpath("//img[@alt='Edit']")).get(index).click();
     //click(By.xpath("//img[@alt='Edit']"));
   }
@@ -78,8 +78,8 @@ public class ContactHelper extends HelperBase {
     returnToHomePage();
   }
 
-  public void modify(int index, ContactData contact) {
-    initContactModification(index);
+  public void modify(ContactData contact) {
+    initContactModificationById(contact.getId());
     fillContactForm(contact, false);
     submitContactModification();
     returnToHomePage();
