@@ -5,8 +5,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 
-import java.util.Comparator;
-import java.util.List;
 import java.util.Set;
 
 public class ContactModificationTests extends TestBase {
@@ -14,7 +12,7 @@ public class ContactModificationTests extends TestBase {
   @BeforeMethod
   public void ensurePreconditions () {
     app.goTo().homePage();
-    if (app.contact().list().size() == 0) {
+    if (app.contact().all().size() == 0) {
       app.contact().create(new ContactData().withFirstname("FirstTest").withLastname("LastTest").withAddress( "AddressTest").
               withTelHome("123456789").withEmail("test@test.com").withGroup("Test1"));
     }
@@ -24,8 +22,8 @@ public class ContactModificationTests extends TestBase {
   public void testContactModification () {
     Set<ContactData> before = app.contact().all();
     ContactData modifiedContact = before.iterator().next();
-    ContactData contact = new ContactData().withId(modifiedContact.getId()).withFirstname("FirstTest").
-            withLastname("LastTest").withAddress("AddressTest").withTelHome("123456789").withEmail("test@test.com");
+    ContactData contact = new ContactData().withId(modifiedContact.getId()).withFirstname("FirstTest44").
+            withLastname("LastTest12").withAddress("AddressTest").withTelHome("123456789").withEmail("test@test.com");
     app.contact().modify(contact);
     Set<ContactData> after = app.contact().all();
     Assert.assertEquals(after.size(), before.size());

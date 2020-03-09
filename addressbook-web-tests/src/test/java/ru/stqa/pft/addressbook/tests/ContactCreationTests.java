@@ -4,8 +4,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 
-import java.util.Comparator;
-import java.util.List;
 import java.util.Set;
 
 public class ContactCreationTests extends TestBase {
@@ -14,7 +12,7 @@ public class ContactCreationTests extends TestBase {
   public void testContactCreation() {
     app.goTo().homePage();
     Set<ContactData> before = app.contact().all();
-    ContactData contact = new ContactData().withFirstname("FirstTest").withLastname("LastTest").withAddress("AddressTest").
+    ContactData contact = new ContactData().withFirstname("FirstTest1").withLastname("LastTest4").withAddress("AddressTest").
             withTelHome("123456789").withEmail("test@test.com").withGroup("Test1");
     app.contact().create(contact);
     Set<ContactData> after = app.contact().all();
