@@ -14,6 +14,8 @@ public class ContactPhoneTests extends TestBase {
     ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact);
 
     assertThat(contact.getTelHome(), equalTo(cleaned(contactInfoFromEditForm.getTelHome())));
+    assertThat(contact.getTelMobile(), equalTo(cleaned(contactInfoFromEditForm.getTelMobile())));
+    assertThat(contact.getTelWork(), equalTo(cleaned(contactInfoFromEditForm.getTelWork())));
   }
 
   public String cleaned (String phone) {
