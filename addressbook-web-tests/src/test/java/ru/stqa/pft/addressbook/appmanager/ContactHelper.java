@@ -45,7 +45,6 @@ public class ContactHelper extends HelperBase {
     click(By.linkText("add new"));
   }
 
-
   public void selectContactById(int id) {
     wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
   }
@@ -58,7 +57,6 @@ public class ContactHelper extends HelperBase {
     wd.switchTo().alert().accept();
     wd.findElement(By.cssSelector("div.msgbox"));
   }
-
 
   public void submitContactModification() {
     click(By.name("update"));
