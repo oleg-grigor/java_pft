@@ -10,8 +10,18 @@ public class ContactData {
   private String telHome;
   private String telMobile;
   private String telWork;
+  private String allPhones;
   private String email;
   private String group;
+
+  public String getAllPhones() {
+    return allPhones;
+  }
+
+  public ContactData withAllPhones(String allPhones) {
+    this.allPhones = allPhones;
+    return this;
+  }
 
   public int getId() {
     return id;
