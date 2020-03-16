@@ -1,23 +1,38 @@
 <list>
   <contact>
-    <firstname>testfirstname 0</firstname>
-    <lastname>testlastname 0</lastname>
-    <address>testaddress 0</address>
-    <telHome>testphones 0</telHome>
-    <email>testemails 0</email>
+    <firstname>testfirstname0</firstname>
+    <lastname>testlastname0</lastname>
+    <address>testaddress0</address>
+    <telHome>testphonehome0</telHome>
+    <telMobile>testphonemobile0</telMobile>
+    <telWork>testphonework0</telWork>
+    <email>testemailone0</email>
+    <email2>testemailtwo0</email2>
+    <email3>testemailthree0</email3>
+    <group>Test1</group>
   </contact>
   <contact>
-    <firstname>testfirstname 1</firstname>
-    <lastname>testlastname 1</lastname>
-    <address>testaddress 1</address>
-    <telHome>testphones 1</telHome>
-    <email>testemails 1</email>
+    <firstname>testfirstname1</firstname>
+    <lastname>testlastname1</lastname>
+    <address>testaddress1</address>
+    <telHome>testphonehome1</telHome>
+    <telMobile>testphonemobile1</telMobile>
+    <telWork>testphonework1</telWork>
+    <email>testemailone1</email>
+    <email2>testemailtwo1</email2>
+    <email3>testemailthree1</email3>
+    <group>Test1</group>
   </contact>
   <contact>
-    <firstname>testfirstname 2</firstname>
-    <lastname>testlastname 2</lastname>
-    <address>testaddress 2</address>
-    <telHome>testphones 2</telHome>
-    <email>testemails 2</email>
+    <firstname>testfirstname2</firstname>
+    <lastname>testlastname2</lastname>
+    <address>testaddress2</address>
+    <telHome>testphonehome2</telHome>
+    <telMobile>testphonemobile2</telMobile>
+    <telWork>testphonework2</telWork>
+    <email>testemailone2</email>
+    <email2>testemailtwo2</email2>
+    <email3>testemailthree2</email3>
+    <group>Test1</group>
   </contact>
 </list>

@@ -19,15 +19,20 @@ public class ContactData {
   private String address;
   @Expose
   private String telHome;
+  @Expose
   private String telMobile;
+  @Expose
   private String telWork;
   private String allPhones;
   private String allAddress;
   @Expose
   private String email;
+  @Expose
   private String email2;
+  @Expose
   private String email3;
   private String allEmails;
+  @Expose
   private String group;
   private File photo;
 

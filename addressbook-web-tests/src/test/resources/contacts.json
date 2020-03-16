@@ -1,23 +1,38 @@
 [
   {
-    "firstname": "testfirstname 0",
-    "lastname": "testlastname 0",
-    "address": "testaddress 0",
-    "telHome": "testphones 0",
-    "email": "testemails 0"
+    "firstname": "testfirstname0",
+    "lastname": "testlastname0",
+    "address": "testaddress0",
+    "telHome": "testphonehome0",
+    "telMobile": "testphonemobile0",
+    "telWork": "testphonework0",
+    "email": "testemailone0",
+    "email2": "testemailtwo0",
+    "email3": "testemailthree0",
+    "group": "Test1"
   },
   {
-    "firstname": "testfirstname 1",
-    "lastname": "testlastname 1",
-    "address": "testaddress 1",
-    "telHome": "testphones 1",
-    "email": "testemails 1"
+    "firstname": "testfirstname1",
+    "lastname": "testlastname1",
+    "address": "testaddress1",
+    "telHome": "testphonehome1",
+    "telMobile": "testphonemobile1",
+    "telWork": "testphonework1",
+    "email": "testemailone1",
+    "email2": "testemailtwo1",
+    "email3": "testemailthree1",
+    "group": "Test1"
   },
   {
-    "firstname": "testfirstname 2",
-    "lastname": "testlastname 2",
-    "address": "testaddress 2",
-    "telHome": "testphones 2",
-    "email": "testemails 2"
+    "firstname": "testfirstname2",
+    "lastname": "testlastname2",
+    "address": "testaddress2",
+    "telHome": "testphonehome2",
+    "telMobile": "testphonemobile2",
+    "telWork": "testphonework2",
+    "email": "testemailone2",
+    "email2": "testemailtwo2",
+    "email3": "testemailthree2",
+    "group": "Test1"
   }
 ]
