@@ -1,0 +1,38 @@
+[
+  {
+    "firstname": "testfirstname0",
+    "lastname": "testlastname0",
+    "address": "testaddress0",
+    "telHome": "testphonehome0",
+    "telMobile": "testphonemobile0",
+    "telWork": "testphonework0",
+    "email": "testemailone0",
+    "email2": "testemailtwo0",
+    "email3": "testemailthree0",
+    "group": "Test1"
+  },
+  {
+    "firstname": "testfirstname1",
+    "lastname": "testlastname1",
+    "address": "testaddress1",
+    "telHome": "testphonehome1",
+    "telMobile": "testphonemobile1",
+    "telWork": "testphonework1",
+    "email": "testemailone1",
+    "email2": "testemailtwo1",
+    "email3": "testemailthree1",
+    "group": "Test1"
+  },
+  {
+    "firstname": "testfirstname2",
+    "lastname": "testlastname2",
+    "address": "testaddress2",
+    "telHome": "testphonehome2",
+    "telMobile": "testphonemobile2",
+    "telWork": "testphonework2",
+    "email": "testemailone2",
+    "email2": "testemailtwo2",
+    "email3": "testemailthree2",
+    "group": "Test1"
+  }
+]
