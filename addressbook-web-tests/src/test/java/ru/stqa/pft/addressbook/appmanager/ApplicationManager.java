@@ -45,7 +45,7 @@ public class ApplicationManager {
     } else if (browser.equals(BrowserType.IE)) {
       wd = new InternetExplorerDriver();
     }
-    wd.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+    wd.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
     wd.get(properties.getProperty("web.baseUrl"));
     contactHelper = new ContactHelper(wd);
     groupHelper = new GroupHelper(wd);

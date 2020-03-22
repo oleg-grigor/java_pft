@@ -77,6 +77,7 @@ public class ContactData {
 
   @Column(name = "photo")
   @Type(type = "text")
+  @Transient
   private String photo;
 
   public String getAllPhones() {
