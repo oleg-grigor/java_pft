@@ -231,11 +231,18 @@ public class ContactData {
     ContactData that = (ContactData) o;
     return id == that.id &&
             Objects.equals(firstname, that.firstname) &&
-            Objects.equals(lastname, that.lastname);
+            Objects.equals(lastname, that.lastname) &&
+            Objects.equals(address, that.address) &&
+            Objects.equals(telHome, that.telHome) &&
+            Objects.equals(telMobile, that.telMobile) &&
+            Objects.equals(telWork, that.telWork) &&
+            Objects.equals(email, that.email) &&
+            Objects.equals(email2, that.email2) &&
+            Objects.equals(email3, that.email3);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, firstname, lastname);
+    return Objects.hash(id, firstname, lastname, address, telHome, telMobile, telWork, email, email2, email3);
   }
 }
