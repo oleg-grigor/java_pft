@@ -83,6 +83,7 @@ public class ContactData {
     return allPhones;
   }
 
+
   public File getPhoto() {
     return new File (photo);
   }
