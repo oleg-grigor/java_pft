@@ -22,7 +22,7 @@ public class ContactDeletionTests extends TestBase {
       app.goTo().homePage();
       app.contact().create(new ContactData().withFirstname("FirstTest1").withLastname("LastTest4").withAddress("AddressTest").
               withTelHome("123456789").withTelMobile("1233").withTelWork("34444").withEmail("test@test.com")
-              .withEmail2("qwe@qwe.com").withEmail3("asd@asd.com").withGroup("Test1")/*.withPhoto(photo)*/);
+              .withEmail2("qwe@qwe.com").withEmail3("asd@asd.com")/*.withGroup("Test1")/*.withPhoto(photo)*/);
     }
   }
 

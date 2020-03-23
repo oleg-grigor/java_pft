@@ -23,7 +23,7 @@ public class ContactModificationTests extends TestBase {
       app.goTo().homePage();
       app.contact().create(new ContactData().withFirstname("FirstTest1").withLastname("LastTest4").withAddress("AddressTest").
               withTelHome("123456789").withTelMobile("1233").withTelWork("34444").withEmail("test@test.com")
-              .withEmail2("qwe@qwe.com").withEmail3("asd@asd.com").withGroup("Test1")/*.withPhoto(photo)*/);
+              .withEmail2("qwe@qwe.com").withEmail3("asd@asd.com")/*.withGroup("Test1")/*.withPhoto(photo)*/);
     }
   }
 
@@ -34,7 +34,7 @@ public class ContactModificationTests extends TestBase {
     //File photo = new File("src/test/resources/stru.png");
     ContactData contact = new ContactData().withId(modifiedContact.getId()).withFirstname("FirstTest7").withLastname("LastTest7").withAddress("AddressTest").
             withTelHome("123456789").withTelMobile("1233").withTelWork("34444").withEmail("test@test.com")
-            .withEmail2("qwe@qwe.com").withEmail3("asd@asd.com").withGroup("Test1")/*.withPhoto(photo)*/;
+            .withEmail2("qwe@qwe.com").withEmail3("asd@asd.com")/*.withGroup("Test1")/*.withPhoto(photo)*/;
     app.goTo().homePage();
     app.contact().modify(contact);
     assertThat(app.contact().count(), equalTo(before.size()));
