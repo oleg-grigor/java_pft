@@ -244,4 +244,9 @@ public class ContactData {
   public int hashCode() {
     return Objects.hash(id, firstname, lastname, address, telHome, telMobile, telWork, email, email2, email3);
   }
+
+  public ContactData inGroup(GroupData group) {
+    groups.add(group);
+    return this;
+  }
 }
