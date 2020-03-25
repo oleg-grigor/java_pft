@@ -159,14 +159,11 @@ public class ContactHelper extends HelperBase {
               .withEmail(email).withEmail2(email2).withEmail3(email3);
   }
 
-  public void addToGroup(ContactData contact, GroupData group) {
-    selectContactById(contact.getId());
-    selectGroupToAddingContact(group);
-  }
-
-  public void selectGroupToAddingContact(GroupData group) {
-    new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(group.getName());
-    click(By.name("add"));
+  public void addInSelectGroup(int id,int index) {
+    selectContactById(id);
+    Select dropdown =  new Select(wd.findElement(By.xpath("//select[@name='to_group']")));
+    dropdown.selectByValue(Integer.toString(index));
+    wd.findElement(By.xpath("//input[@name='add']")).click();
   }
 }
 
