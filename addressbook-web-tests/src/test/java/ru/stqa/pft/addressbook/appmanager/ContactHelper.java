@@ -40,7 +40,6 @@ public class ContactHelper extends HelperBase {
     type(By.name("email3"), contactData.getEmail3());
     //attach(By.name("photo"), contactData.getPhoto());
 
-
     if (creation) {
       if (contactData.getGroups().size() > 0) {
         Assert.assertTrue(contactData.getGroups().size() == 1);
@@ -159,12 +158,22 @@ public class ContactHelper extends HelperBase {
               .withEmail(email).withEmail2(email2).withEmail3(email3);
   }
 
-  public void addInSelectGroup(int id,int index) {
+  public void addInSelectedGroup(int id, int index) {
     selectContactById(id);
-    Select dropdown =  new Select(wd.findElement(By.xpath("//select[@name='to_group']")));
-    dropdown.selectByValue(Integer.toString(index));
+    Select listAvailableGroups =  new Select(wd.findElement(By.xpath("//select[@name='to_group']")));
+    listAvailableGroups.selectByValue(Integer.toString(index));
     wd.findElement(By.xpath("//input[@name='add']")).click();
   }
+
+  public void deleteFromSelectedGroup(int id, int index) {
+    Select listGroupsToFilter = new Select(wd.findElement(By.xpath("//select[@name='group']")));
+    listGroupsToFilter.selectByValue(Integer.toString(index));
+    selectContactById(id);
+    wd.findElement(By.xpath("//input[@name='remove']")).click();
+  }
 }
+
+
+
 
 
