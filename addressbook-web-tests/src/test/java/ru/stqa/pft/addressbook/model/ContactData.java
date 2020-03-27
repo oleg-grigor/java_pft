@@ -248,4 +248,9 @@ public class ContactData {
     groups.add(group);
     return this;
   }
+
+  public ContactData removeOfGroup(GroupData group) {
+    groups.remove(group);
+    return this;
+  }
 }

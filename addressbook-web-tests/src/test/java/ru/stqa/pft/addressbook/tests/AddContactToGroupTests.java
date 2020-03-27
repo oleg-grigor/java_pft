@@ -14,53 +14,53 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class AddContactToGroupTests extends TestBase {
 
+  ContactData contact;
+  GroupData group;
+  private boolean groupCreated;
+  private boolean contactCreated;
+
   @BeforeMethod
   public void ensurePrecondition() {
     if (app.db().contacts().size() == 0) {
       app.contact().create(new ContactData().withFirstname("FirstTest1").withLastname("LastTest4").withAddress("AddressTest").
               withTelHome("123456789").withTelMobile("1233").withTelWork("34444").withEmail("test@test.com")
               .withEmail2("qwe@qwe.com").withEmail3("asd@asd.com"));
+      contactCreated = true;
     }
 
     if (app.db().groups().size() == 0) {
+      app.goTo().groupPage();
       app.group().create(new GroupData().withName("test7").withHeader("test8").withFooter("test9"));
       app.goTo().homePage();
+      groupCreated = true;
+    }
+
+    if (!(contactCreated && groupCreated)) {
+      for (GroupData g : app.db().groups()) {
+        for (ContactData c : app.db().contacts()) {
+          if (!c.getGroups().contains(g)) {
+            contact = c;
+            group = g;
+            return;
+          }
+        }
+      }
+
+      contact = app.db().contacts().iterator().next();
+      app.group().create(new GroupData().withName("test10").withHeader("test11").withFooter("test12"));
+      app.goTo().groupPage();
+      //app.group().create(group);
     }
   }
 
   @Test
   public void testAddContactToGroup() {
-    Groups group = app.db().groups();
-    Contacts contacts = app.db().contacts();
-    ContactData contact = contacts.iterator().next();
-    int id = contact.getId();
-    Set<GroupData> groupsOfContact = contact.getGroups();
-
-    if (groupsOfContact.size() < group.size()) {
-      group.removeAll(groupsOfContact);
-      int index = group.iterator().next().getId();
-      app.contact().addInSelectedGroup(id, index);
-
-    } else {
-      GroupData newGroup = new GroupData();
-      app.goTo().groupPage();
-      long now = System.currentTimeMillis();
-      app.group().create(newGroup.withName(String.format("TEST", now)));
-      int index = app.db().groups().stream().mapToInt(g -> g.getId()).max().getAsInt();
-      app.goTo().homePage();
-      app.contact().addInSelectedGroup(id, index);
-    }
+    Contacts before = app.db().contacts();
+    ContactData contactWithAddedGroup = contact.inGroup(group);
     app.goTo().homePage();
-
-    Contacts contacts1 = app.db().contacts();
-    ContactData contactNew = contacts1.stream().filter((c) -> c.equals(contact)).findFirst().get();
-    Set<GroupData> groupOfContactSet1 = contactNew.getGroups();
-    assertThat(groupOfContactSet1.size(), equalTo(groupsOfContact.size() + 1));
-
-    GroupData groupData1 = groupOfContactSet1.stream().filter(groupData -> !(groupsOfContact.contains(groupData)))
-            .findFirst().get();
-    groupsOfContact.add(groupData1);
-    assertThat(groupOfContactSet1, equalTo(((Groups) groupsOfContact).withAdded(groupData1)));
+    app.contact().addInSelectedGroup(contact.getId(), group.getName());
+    Contacts after = app.db().contacts();
+    assertThat(after, equalTo(before.without(contact).withAdded(contactWithAddedGroup)));
   }
 }
 

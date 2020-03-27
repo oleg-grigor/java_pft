@@ -158,18 +158,18 @@ public class ContactHelper extends HelperBase {
               .withEmail(email).withEmail2(email2).withEmail3(email3);
   }
 
-  public void addInSelectedGroup(int id, int index) {
+  public void addInSelectedGroup(int id, String groupName) {
     selectContactById(id);
-    Select listAvailableGroups =  new Select(wd.findElement(By.xpath("//select[@name='to_group']")));
-    listAvailableGroups.selectByValue(Integer.toString(index));
-    wd.findElement(By.xpath("//input[@name='add']")).click();
+    click(By.name("to_group"));
+    click(By.xpath(String.format("//select[@name='to_group']/option[text()='%s']", groupName)));
+    click(By.name("add"));
   }
 
-  public void deleteFromSelectedGroup(int id, int index) {
-    Select listGroupsToFilter = new Select(wd.findElement(By.xpath("//select[@name='group']")));
-    listGroupsToFilter.selectByValue(Integer.toString(index));
+  public void deleteFromSelectedGroup(int id, String groupName) {
+    click(By.name("group"));
+    click(By.xpath(String.format("//select[@name='group']/option[text()='%s']", groupName)));
     selectContactById(id);
-    wd.findElement(By.xpath("//input[@name='remove']")).click();
+    click(By.name("remove"));
   }
 }
 

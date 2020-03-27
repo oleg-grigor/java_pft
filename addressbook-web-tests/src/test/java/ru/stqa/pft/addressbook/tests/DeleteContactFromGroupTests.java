@@ -13,6 +13,10 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
 public class DeleteContactFromGroupTests extends TestBase{
+  private ContactData contact;
+  private GroupData group;
+  private boolean contactCreated;
+  private boolean groupCreated;
 
   @BeforeMethod
   public void ensurePrecondition() {
@@ -20,42 +24,38 @@ public class DeleteContactFromGroupTests extends TestBase{
       app.contact().create(new ContactData().withFirstname("FirstTest1").withLastname("LastTest4").withAddress("AddressTest").
               withTelHome("123456789").withTelMobile("1233").withTelWork("34444").withEmail("test@test.com")
               .withEmail2("qwe@qwe.com").withEmail3("asd@asd.com"));
+      contactCreated = true;
     }
 
     if (app.db().groups().size() == 0) {
+      app.goTo().groupPage();
       app.group().create(new GroupData().withName("test7").withHeader("test8").withFooter("test9"));
       app.goTo().homePage();
+      groupCreated = true;
     }
 
-    if (app.db().contacts().iterator().next().getGroups().size() == 0) {
-      app.contact().addInSelectedGroup(app.db().contacts().iterator().next().getId(), app.db().groups().iterator().next().getId());
-      app.goTo().homePage();
+    if (!(contactCreated && groupCreated)) {
+      for (ContactData c : app.db().contacts()) {
+        if (c.getGroups().size() != 0) {
+          contact = c;
+          group = c.getGroups().iterator().next();
+          return;
+        }
+      }
     }
+    contact = app.db().contacts().iterator().next();
+    group = app.db().groups().iterator().next();
+    app.goTo().homePage();
+    app.contact().addInSelectedGroup(contact.getId(), group.getName());
   }
-
+  
   @Test
   public void testDeleteContactFromGroup() {
-
-    //Groups group = app.db().groups();
-    Contacts contacts = app.db().contacts();
-    ContactData contact = contacts.iterator().next();
-    int id = contact.getId();
-    Set<GroupData> groupsOfContact = contact.getGroups();
-
-    if (!groupsOfContact.isEmpty()) {
-      int index = groupsOfContact.iterator().next().getId();
-      app.contact().deleteFromSelectedGroup(id, index);
-      app.goTo().homePage();
-    }
-
-    Contacts contacts1 = app.db().contacts();
-    ContactData contactNew = contacts1.stream().filter((c) -> c.equals(contact)).findFirst().get();
-    Set<GroupData> groupsOfContact1 = contactNew.getGroups();
-    assertThat(groupsOfContact1.size(), equalTo(groupsOfContact.size() - 1));
-
-    GroupData groupData2 = groupsOfContact.stream().filter(groupData -> !(groupsOfContact1.contains(groupData)))
-            .findFirst().get();
-    assertThat(groupsOfContact1, equalTo(((Groups) groupsOfContact).without(groupData2)));
-
+    Contacts before = app.db().contacts();
+    ContactData contactWithoutGroup = contact.removeOfGroup(group);
+    app.goTo().homePage();
+    app.contact().deleteFromSelectedGroup(contact.getId(), group.getName());
+    Contacts after = app.db().contacts();
+    assertThat(after, equalTo(before.without(contact).withAdded(contactWithoutGroup)));
   }
 }
