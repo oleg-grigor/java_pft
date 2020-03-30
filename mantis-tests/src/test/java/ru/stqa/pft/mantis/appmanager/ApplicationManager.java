@@ -44,11 +44,17 @@ public class ApplicationManager {
   public void logout() {
     wd.findElement(By.linkText("Logout")).click();
     wd.findElement(By.name("user")).clear();
-
   }
 
   public void stop() {
     wd.quit();
   }
 
+  public HttpSession newSession() {
+    return new HttpSession(this);
+  }
+
+  public Object getProperty(String key) {
+    return properties.getProperty(key);
+  }
 }
