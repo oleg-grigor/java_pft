@@ -3,11 +3,7 @@ package ru.stqa.pft.addressbook.tests;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
-import ru.stqa.pft.addressbook.model.Contacts;
 import ru.stqa.pft.addressbook.model.GroupData;
-import ru.stqa.pft.addressbook.model.Groups;
-
-import java.util.Set;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -45,22 +41,15 @@ public class AddContactToGroupTests extends TestBase {
           }
         }
       }
-
-      contact = app.db().contacts().iterator().next();
-      app.group().create(new GroupData().withName("test10").withHeader("test11").withFooter("test12"));
-      app.goTo().groupPage();
-      //app.group().create(group);
     }
   }
 
   @Test
   public void testAddContactToGroup() {
-    Contacts before = app.db().contacts();
     ContactData contactWithAddedGroup = contact.inGroup(group);
     app.goTo().homePage();
     app.contact().addInSelectedGroup(contact.getId(), group.getName());
-    Contacts after = app.db().contacts();
-    assertThat(after, equalTo(before.without(contact).withAdded(contactWithAddedGroup)));
+    assertThat(contact.getGroups(), equalTo(contactWithAddedGroup.getGroups().withAdded(group)));
   }
 }
 

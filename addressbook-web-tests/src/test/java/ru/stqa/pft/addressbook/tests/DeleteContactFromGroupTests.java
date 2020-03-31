@@ -3,16 +3,12 @@ package ru.stqa.pft.addressbook.tests;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
-import ru.stqa.pft.addressbook.model.Contacts;
 import ru.stqa.pft.addressbook.model.GroupData;
-import ru.stqa.pft.addressbook.model.Groups;
-
-import java.util.Set;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
-public class DeleteContactFromGroupTests extends TestBase{
+public class DeleteContactFromGroupTests extends TestBase {
   private ContactData contact;
   private GroupData group;
   private boolean contactCreated;
@@ -43,19 +39,13 @@ public class DeleteContactFromGroupTests extends TestBase{
         }
       }
     }
-    contact = app.db().contacts().iterator().next();
-    group = app.db().groups().iterator().next();
-    app.goTo().homePage();
-    app.contact().addInSelectedGroup(contact.getId(), group.getName());
   }
-  
+
   @Test
   public void testDeleteContactFromGroup() {
-    Contacts before = app.db().contacts();
     ContactData contactWithoutGroup = contact.removeOfGroup(group);
     app.goTo().homePage();
     app.contact().deleteFromSelectedGroup(contact.getId(), group.getName());
-    Contacts after = app.db().contacts();
-    assertThat(after, equalTo(before.without(contact).withAdded(contactWithoutGroup)));
+    assertThat(contact.getGroups(), equalTo(contactWithoutGroup.getGroups().without(group)));
   }
 }
