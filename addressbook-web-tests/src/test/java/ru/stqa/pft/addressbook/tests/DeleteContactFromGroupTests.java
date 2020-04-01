@@ -20,6 +20,7 @@ public class DeleteContactFromGroupTests extends TestBase {
       app.contact().create(new ContactData().withFirstname("FirstTest1").withLastname("LastTest4").withAddress("AddressTest").
               withTelHome("123456789").withTelMobile("1233").withTelWork("34444").withEmail("test@test.com")
               .withEmail2("qwe@qwe.com").withEmail3("asd@asd.com"));
+      contact = app.db().contacts().iterator().next();
       contactCreated = true;
     }
 
@@ -27,6 +28,7 @@ public class DeleteContactFromGroupTests extends TestBase {
       app.goTo().groupPage();
       app.group().create(new GroupData().withName("test7").withHeader("test8").withFooter("test9"));
       app.goTo().homePage();
+      group = app.db().groups().iterator().next();
       groupCreated = true;
     }
 
@@ -39,6 +41,10 @@ public class DeleteContactFromGroupTests extends TestBase {
         }
       }
     }
+    contact = app.db().contacts().iterator().next();
+    group = app.db().groups().iterator().next();
+    app.goTo().homePage();
+    app.contact().addInSelectedGroup(contact.getId(), group.getName());
   }
 
   @Test
