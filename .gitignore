@@ -19,3 +19,5 @@ gradle-app.setting
 *.html
 *.html
 mantis-tests/build/reports/tests/test/index.html
+*.html
+*.xml
