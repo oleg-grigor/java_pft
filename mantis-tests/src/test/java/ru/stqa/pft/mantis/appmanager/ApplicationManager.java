@@ -1,6 +1,5 @@
 package ru.stqa.pft.mantis.appmanager;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -22,7 +21,7 @@ public class ApplicationManager {
   private RegistrationHelper registrationHelper;
   private FtpHelper ftp;
   private MailHelper mailHelper;
-
+  private JamesHelper jamesHelper;
 
   public ApplicationManager(String browser) {
     this.browser = browser;
@@ -34,13 +33,8 @@ public class ApplicationManager {
     properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
   }
 
-  public void logout() {
-    wd.findElement(By.linkText("Logout")).click();
-    wd.findElement(By.name("user")).clear();
-  }
-
   public void stop() {
-    if (wd != null){
+    if (wd != null) {
       wd.quit();
     }
   }
@@ -69,14 +63,16 @@ public class ApplicationManager {
 
   public WebDriver getDriver() {
     if (wd == null) {
-      if (browser.equals(BrowserType.FIREFOX)) {
-        wd = new FirefoxDriver();
-      } else if (browser.equals(BrowserType.CHROME)){
+      if (browser.equals(BrowserType.CHROME)) {
+        System.setProperty("webdriver.chrome.driver", "c:\\Windows\\System32\\chromedriver.exe");
         wd = new ChromeDriver();
+      } else if (browser.equals(BrowserType.FIREFOX)) {
+        wd = new FirefoxDriver();
       } else if (browser.equals(BrowserType.IE)) {
         wd = new InternetExplorerDriver();
       }
-      wd.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+
+      wd.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
       wd.get(properties.getProperty("web.baseUrl"));
     }
     return wd;
@@ -88,5 +84,11 @@ public class ApplicationManager {
     }
     return mailHelper;
   }
-}
 
+  public JamesHelper james() {
+    if (jamesHelper == null) {
+      jamesHelper = new JamesHelper(this);
+    }
+    return jamesHelper;
+  }
+}

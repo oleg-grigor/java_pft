@@ -29,3 +29,8 @@ test {
         systemProperty 'verifyUI', "${verifyUI}"
     }
 }
+
+
+tasks.withType(Test) {
+    systemProperty "file.encoding", "UTF-8"
+}
