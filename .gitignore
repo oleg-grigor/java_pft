@@ -21,3 +21,8 @@ gradle-app.setting
 mantis-tests/build/reports/tests/test/index.html
 *.html
 *.xml
+mantis-tests/build/test-results/test/TEST-ru.stqa.pft.mantis.tests.LoginTests.xml
+mantis-tests/build/test-results/test/binary/results.bin
+mantis-tests/build/reports/tests/test/packages/ru.stqa.pft.mantis.tests.html
+mantis-tests/build/reports/tests/test/index.html
+*.xml
