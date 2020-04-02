@@ -26,3 +26,8 @@ mantis-tests/build/test-results/test/binary/results.bin
 mantis-tests/build/reports/tests/test/packages/ru.stqa.pft.mantis.tests.html
 mantis-tests/build/reports/tests/test/index.html
 *.xml
+mantis-tests/build/reports/tests/test/index.html
+*.xml
+*.bin
+*.html
+*.html
