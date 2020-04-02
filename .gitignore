@@ -16,3 +16,6 @@ gradle-app.setting
 .idea/.name
 
 *.log
+*.html
+*.html
+mantis-tests/build/reports/tests/test/index.html
