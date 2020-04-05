@@ -45,3 +45,13 @@ mantis-tests/build/reports/tests/test/index.html
 .idea/gradle.xml
 mantis-tests/build/test-results/test/binary/results.bin
 soap-sample/build/test-results/test/binary/output.bin.idx
+mantis-tests/build/reports/tests/test/index.html
+mantis-tests/build/reports/tests/test/index.html
+soap-sample/build/reports/tests/test/js/report.js
+soap-sample/build/reports/tests/test/css/style.css
+soap-sample/build/reports/tests/test/css/base-style.css
+mantis-tests/build/test-results/test/binary/results.bin
+mantis-tests/build/test-results/test/binary/output.bin.idx
+mantis-tests/build/test-results/test/binary/output.bin
+mantis-tests/build/reports/tests/test/packages/ru.stqa.pft.mantis.tests.html
+mantis-tests/build/reports/tests/test/index.html
