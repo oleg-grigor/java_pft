@@ -7,6 +7,7 @@ public class Issue {
   private int id;
   private String subject;
   private String description;
+  private String state_name;
 
   public int getId() {
     return id;
@@ -48,5 +49,9 @@ public class Issue {
   @Override
   public int hashCode() {
     return Objects.hash(id, subject, description);
+  }
+
+  public String getState_name() {
+    return state_name;
   }
 }
