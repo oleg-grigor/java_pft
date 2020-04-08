@@ -61,3 +61,7 @@ mantis-tests/build/reports/tests/test/packages/ru.stqa.pft.mantis.tests.html
 mantis-tests/build/test-results/test/binary/results.bin
 mantis-tests/build/test-results/test/binary/output.bin.idx
 mantis-tests/build/test-results/test/binary/output.bin
+github-sample/build/reports/tests/test/css/base-style.css
+github-sample/build/reports/tests/test/css/style.css
+github-sample/build/test-results/test/binary/output.bin.idx
+github-sample/build/reports/tests/test/js/report.js
